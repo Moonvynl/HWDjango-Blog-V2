@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All posts</title>
+    <title>Posts</title>
 </head>
 <body>
-    <h2>All posts</h2>
-    {% for post in posts %}
-        <ul>
-            {{post.title}} - {{post.published_date}}
-            </ul>
-    {% endfor %}
+    <h2>
+        Posts
+    </h2>
+    <ul>
+        {%for post in posts_list%}
+            <a href="{%url 'post_details' post.id%}" target="_blank">
+                <li>
+                    <div style="font-size: 30px; padding: 20px;">{{post.title}}</div> 
+                    <div style="font-size: 15px;">Upload date: {{post.published_date}}</div>
+                </li>
+            </a>
+        {%endfor%}
+    </ul>
 </body>
-</html>

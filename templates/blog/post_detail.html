@@ -1,0 +1,32 @@
+<head>
+    <title>Posts</title>
+</head>
+<body>
+    <a href="{%url 'posts_list'%}">Back</a>
+    <div>
+        <h2>{{post.title}}</h2>
+        <br>
+        <img src="/media/{{post.photo}}" alt="My image" style="height: 20%; width: 20%;">
+        <br>
+        Description: <br>
+        {{post.content}}
+        <br>
+        Author: <a href="post/author/{{post.author.id}}">{{post.author}}</a>
+        <br>
+        Upload date: {{post.published_date}}
+        <br>
+        Does it new? {{publish_test}}
+        <br>
+        <h2>Comments:</h2>
+        <ul>
+            {%for comment in comments%}
+                <li>Author: {{comment.author_name}}
+                    {{comment.text}}
+                    <br>
+                    {{comment.created_time}}
+                </li>
+                <br>
+            {%endfor%}
+        </ul>
+    </div>
+</body>

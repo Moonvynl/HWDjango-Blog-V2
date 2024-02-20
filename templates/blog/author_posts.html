@@ -1,0 +1,25 @@
+<head>
+    <title>Author Posts</title>
+</head>
+<body>
+    <a href="{%url 'posts_list'%}">Back</a>
+    <div>
+
+        <h2>Author's info:</h2>
+        <ul>
+            <li>Name: {{author.name}}</li>
+            <li>Bio: {{author.bio}}</li>
+        </ul>
+        <br>
+        <ul>
+            {%for post in posts%}
+                <a href="{%url 'post_details' post.id%}" target="_blank">
+                    <li>
+                        <div style="font-size: 30px; padding: 20px;">{{post.title}}</div> 
+                        <div style="font-size: 15px;">Upload date: {{post.published_date}}</div>
+                    </li>
+                </a>
+            {%endfor%}
+        </ul>
+    </div>
+</body>
